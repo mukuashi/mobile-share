@@ -1,0 +1,50 @@
+{
+  "name": "miui-mobile-share",
+  "version": "1.1.1",
+  "description": "Social Share For Mobile",
+  "author": {
+    "name": "Mich",
+    "email": "mukuashi@xiaomi.com",
+    "url": "http://miui.com"
+  },
+  "repository": "miui/miui-mobile-share",
+  "license": "MIT",
+  "main": "dist/soshm.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config webpack.config.js",
+    "js": "cross-env NODE_ENV=production webpack",
+    "minify": "uglifyjs --mangle --compress -o ./dist/soshm.min.js ./dist/soshm.js",
+    "build": "npm run js && npm run minify",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "share",
+    "socialshare",
+    "nativeshare",
+    "weixin",
+    "qq",
+    "weibo",
+    "qzone"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "cross-env": "^2.0.1",
+    "css-loader": "^0.25.0",
+    "delegate": "^3.0.2",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.10.1",
+    "postcss-loader": "^0.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "uglify-js": "^2.7.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "delegate": "^3.0.2",
+    "xtend": "^4.0.1"
+  }
+}

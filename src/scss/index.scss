@@ -1,0 +1,254 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Heiti SC","Microsoft YaHei" sans-serif;
+}
+@mixin clearfix {
+  &:before, &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+$width-small: 360px;
+$width-medium: 480px;
+$width-large: 1296px;
+
+
+$sites: (
+  weixin: #49b233,
+  yixin: #23cfaf,
+  weibo: #f04e59,
+  qzone: #fdbe3d,
+  renren: #1f7fc9,
+  tieba: #5b95f0,
+  douban: #228a31,
+  tqq: #97cbe1,
+  qq: #4081e1,
+  weixintimeline: #1cb526
+);
+.share-pic{
+  display: none;
+  width: 0;
+  height: 0;
+}
+header{
+  text-align: center;
+  margin-top: 8%;
+  h3{
+    padding-top: 2%;
+  }
+}
+section{
+  text-align: center;
+  padding: 1% 0;
+  &:nth-child(3){
+    margin-top: 1%;
+  }
+  &:nth-child(5) {
+    padding-bottom: 2.5%;
+  }
+  h3{
+    padding: 1.5%;
+    font-size: 1rem;
+    @media screen and (max-width: $width-medium) {
+        padding: 5%;
+    }
+    @media screen and (max-width: $width-small) {
+        padding: 3.5%;
+    }
+  }
+  a{
+   background-color: #1aad19;
+    display: block;
+    margin: 0 auto;
+    width: 18rem;
+    padding: 0.7rem 0;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.soshm {
+  @include clearfix;
+  text-align: center;
+
+  &-item {
+    text-align: center;
+    display: inline-block;
+    margin: 10px 15px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &-icon {
+      box-sizing: content-box;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+      margin: 0;
+      vertical-align: middle;
+      border-radius: 50%;
+
+      img {
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-text {
+      display: none;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @each $name, $color in $sites {
+      &.#{$name} {
+        .soshm-item-icon {
+          background: $color;
+        }
+
+        &:hover {
+          .soshm-item-icon {
+            background: darken($color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  &-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+
+    .soshm-item {
+      display: block;
+      float: none;
+      margin: 0;
+    }
+  }
+
+  &-pop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 9999;
+    background: rgba(#000, 0.65);
+    transition-property: opacity;
+    transition-timing-function: ease-in;
+
+    &-show {
+      opacity: 1;
+      transition-duration: 0.6s;
+
+      @for $i from 1 through 4 {
+        .group#{$i} {
+          $duration: ($i - 1) * 500ms + 1200ms;
+          animation: soshtrans $duration 1 ease;
+        }
+      }
+    }
+
+    &-hide {
+      opacity: 0;
+      transition-duration: 1s;
+
+      @for $i from 1 through 4 {
+        .group#{$i} {
+          $delay: ($i - 1) * 200ms;
+          animation: soshtrans2 500ms 1 cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay forwards;
+        }
+      }
+    }
+
+    &-sites {
+      position: absolute;
+      top: 60%;
+      left: 0;
+      width: 100%;
+      transform: translate(0, -50%);
+    }
+
+    .soshm {
+      &-item-icon {
+        width: 42px;
+        height: 42px;
+        padding: 10px;
+      }
+    }
+  }
+
+  &-weixin-sharetip {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6) url(../img/weixin_sharetip.png) no-repeat right 0;
+    background-size: 50% auto;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 600ms ease-out;
+
+    &.weixin-sharetip-show {
+      z-index: 9999;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@keyframes soshtrans {
+  0% {
+    transform: translate3d(0, 1136px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  60% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes soshtrans2 {
+  0% {
+    opacity: 1;
+    transform:translate3d(0, 0, 0);
+  }
+
+  100%{
+    opacity: 0;
+    transform:translate3d(0, 500%, 0);
+  }
+}

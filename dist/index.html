@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>webpack模块化打包一键分享移动端组件demo</title>
+</head>
+<body>
+  <!-- share app会默认抓取第一张img作为img-share-pic-->
+  <img class="share-pic" src="http://placekitten.com/300/300" alt="description-pic：分享内容的缩略图在这自定义">
+  <header>
+     <h3>webpack模块化打包<br>一键分享移动端组件demo</h3>
+  </header>
+  <section>
+      <h3>1：使用参数进行设置</h3>
+      <div id="miui-mobile-share" data-title="title：分享内容的标题在这自定义"></div>
+  </section> 
+ 
+   <section>
+      <h3>2：使用dataset进行配置</h3> 
+      <div class="share" data-title="title：分享内容的标题在这自定义" data-url="http://miui.com" data-sites="weixin,weibo,qzone,tqq,douban,tieba,yixin,renren" data-pic="http://placekitten.com/200/300"></div>
+   </section> 
+
+   <section>
+      <h3>3：弹出式分享窗口demo</h3> 
+      <a href="javascript:;" id="shareBtn">click me</a>
+   </section> 
+
+
+<script type="text/javascript" src="main.js"></script></body>
+</html>
