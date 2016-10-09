@@ -1,7 +1,8 @@
 Demo View Image：
 
-<img src="https://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/StaticRes/e1a48aa2e9365f76366a9e4c002abeb2eb266296.png">
-<img src="https://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/StaticRes/a1b6669f97410d456edbdc48eca19e92383dc6f8.png">
+<img src="https://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/StaticRes/e1a48aa2e9365f76366a9e4c002abeb2eb266296.png" style="text-align:center;width:100%;">
+
+<img src="https://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/StaticRes/a1b6669f97410d456edbdc48eca19e92383dc6f8.png" style="text-align:center;width:100%;">
 
 Demo URL：http://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/miuiMobileShare
 
