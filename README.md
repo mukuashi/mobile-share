@@ -20,7 +20,8 @@ Demo URL：http://sec-cdn.static.xiaomi.net/secStatic/groups/miui-sec/mukuashi/m
 通过npm进行安装
 
 ```
-git clone ...
+git clone git@github.com:PhotoArtLife/miui-share-mobile.git
+
 ```
 
 或者把脚本引进你的页面里
