@@ -11,7 +11,6 @@
     content: " "; /* 1 */
     display: table; /* 2 */
   }
-
   &:after {
     clear: both;
   }
@@ -20,7 +19,6 @@
 $width-small: 360px;
 $width-medium: 480px;
 $width-large: 1296px;
-
 
 $sites: (
   weixin: #49b233,
@@ -35,9 +33,9 @@ $sites: (
   weixintimeline: #1cb526
 );
 .share-pic{
-  position:absolute;
-  width: 0;
-  height: 0;
+  position: absolute; 
+  opacity: 0;
+  z-index: -1;
 }
 header{
   text-align: center;
